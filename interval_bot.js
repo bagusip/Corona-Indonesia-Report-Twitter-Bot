@@ -60,7 +60,7 @@ function print(){
 
 // // console.log('this is a tweet from node.js '+ new Date);
 tweetIt();
-setInterval(tweetIt, 1000*5)
+setInterval(tweetIt, 1000*10800)
 
 function tweetIt(){
 
@@ -68,7 +68,7 @@ function tweetIt(){
 		status: random_item(quotes)
 	}
 
-	// T.post('statuses/update', tweet, tweeted);
+	T.post('statuses/update', tweet, tweeted);
 	print();
 
 	function tweeted(err, data, response){
