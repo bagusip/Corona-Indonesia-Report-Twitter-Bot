@@ -60,12 +60,12 @@ function print(){
 
 // // console.log('this is a tweet from node.js '+ new Date);
 tweetIt();
-setInterval(tweetIt, 1000*60)
+setInterval(tweetIt, 1000*10800) //3 hours
 
 function tweetIt(){
 
 	var tweet = {
-		status: random_item(quotes)
+		status: random_item(quotes) + "#RedCometBot"
 	}
 
 	T.post('statuses/update', tweet, tweeted);

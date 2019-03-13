@@ -1,1 +1,0 @@
-worker: node interval_bot.js
