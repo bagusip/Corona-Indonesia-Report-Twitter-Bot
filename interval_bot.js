@@ -60,7 +60,7 @@ function print(){
 
 // // console.log('this is a tweet from node.js '+ new Date);
 tweetIt();
-setInterval(tweetIt, 1000*10800)
+setInterval(tweetIt, 1000*60)
 
 function tweetIt(){
 
