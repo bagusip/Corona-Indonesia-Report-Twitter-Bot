@@ -65,7 +65,7 @@ setInterval(tweetIt, 1000*10800) //3 hours
 function tweetIt(){
 
 	var tweet = {
-		status: random_item(quotes) + "#RedCometBot"
+		status: random_item(quotes) + " #RedCometBot"
 	}
 
 	T.post('statuses/update', tweet, tweeted);
