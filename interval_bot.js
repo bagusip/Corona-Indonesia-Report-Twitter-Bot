@@ -60,7 +60,7 @@ function tweetIt(){
 		status: random_item(quotes) + " #PatahHati"
 	}
 
-	// T.post('statuses/update', tweet, tweeted);
+	T.post('statuses/update', tweet, tweeted);
 	print();
 
 	function tweeted(err, data, response){
