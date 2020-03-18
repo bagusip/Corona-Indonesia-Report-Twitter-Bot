@@ -5,6 +5,7 @@ var config = require('./config');
 
 var T = new Twit(config);
 
+function fetchData(){
 fetch("https://pomber.github.io/covid19/timeseries.json")
 .then(res => res.json())
 .then(data =>{
@@ -15,22 +16,27 @@ fetch("https://pomber.github.io/covid19/timeseries.json")
 
 	tweetIt(hasil)
 })
+}
 
-setInterval(tweetIt, 1000*3600*24) //24 hours
 
+fetchData();
+
+setInterval(fetchData, 1000*3600*23) //23 hours
 
 
 function tweetIt(hasil){
-
+	var test = Math.floor(Math.random() * 10); 
 	var tweet = {
 		status: hasil + " #CoronaOutbreak #CoronaIndonesia"
 	}
 
+	console.log(tweet);
 	T.post('statuses/update', tweet, tweeted);
 
 	function tweeted(err, data, response){
 		if(err){
 		console.log("Something went wrong . . .")
+		console.log(err)
 		}
 		else {
 		console.log("It worked !")	
