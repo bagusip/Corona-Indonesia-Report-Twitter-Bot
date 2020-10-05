@@ -9,7 +9,7 @@ function fetchData(){
 fetch("https://disease.sh/v3/covid-19/countries/Indonesia")
 .then(res => res.json())
 .then(data =>{
-	var tweet = 'Tanggal: '+ getTanggal()+ '\n' +'Kasus: '+data.cases+'\n'+'Kematian: '+data.deaths+'\n'+'Sembuh: '+data.recovered+'\n'+'Pasien Aktif: '+data.active;
+	var tweet = 'Tanggal: '+ getTanggal()+ '\n' +'Kasus: '+data.cases+'\n'+'Kematian: '+data.deaths+'\n'+'Sembuh: '+data.recovered+'\n'+'Pasien Aktif: '+data.active+'\n';
 
 	tweetIt(tweet);
 })
