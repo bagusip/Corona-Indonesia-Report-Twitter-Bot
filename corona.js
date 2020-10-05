@@ -1,35 +1,24 @@
 const fetch = require("node-fetch");
 
-function getTanggal(){
-	var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+// fetch("https://pomber.github.io/covid19/timeseries.json")
+//   .then(response => response.json())
+//   .then(data => {
+//     data["Indonesia"].forEach(({ confirmed, recovered, deaths }) =>
+//       console.log(`${confirmed} - ${recovered} - ${deaths}`)
 
-	var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum&#39;at', 'Sabtu'];
-	
-	var date = new Date();
-	
-	var day = date.getDate();
-	
-	var month = date.getMonth();
-	
-	var thisDay = date.getDay(),
-	
-		thisDay = myDays[thisDay];
-	
-	var yy = date.getYear();
-	
-	var year = (yy < 1000) ? yy + 1900 : yy;
-	
-	var tanggal = thisDay + ', ' + day + ' ' + months[month] + ' ' + year;
-	console.log(tanggal);
+//     )
+//   })
+var temp;
 
-	return tanggal;
-}
-
- fetch("https://disease.sh/v3/covid-19/countries/Indonesia")
+ fetch("https://pomber.github.io/covid19/timeseries.json")
     .then(res => res.json())
     .then(data =>{
-		var tweet = 'Tanggal: '+ getTanggal()+ ' ' +'Kasus: '+data.cases+' '+'Kematian: '+data.deaths+' '+'Sembuh: '+data.recovered+' '+'Pasien Aktif: '+data.active;
-		console.log(tweet);
+    	// console.log(data["Indonesia"])
+    	var json = data['Indonesia']
+		var highest = json[ Object.keys(json).pop()];
+		var tweet = 'Tanggal '+highest.date+' '+'Terkonfirmasi: '+highest.confirmed+' '+'Meninggal: '+highest.deaths+' '+'Sembuh: '+highest.recovered
+		temp = tweet
+		console.log(temp)
     })
 
 

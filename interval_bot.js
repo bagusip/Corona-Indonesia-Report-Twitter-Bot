@@ -9,9 +9,7 @@ function fetchData(){
 fetch("https://disease.sh/v3/covid-19/countries/Indonesia")
 .then(res => res.json())
 .then(data =>{
-	// console.log(data["Indonesia"])
-	var tweet = 'Tanggal: '+ getTanggal()+ ' ' +'Kasus: '+data.cases+' '+'Kematian: '+data.deaths+' '+'Sembuh: '+data.recovered+' '+'Pasien Aktif: '+data.active;
-	console.log(tweet);
+	var tweet = 'Tanggal: '+ getTanggal()+ '\n' +'Kasus: '+data.cases+'\n'+'Kematian: '+data.deaths+'\n'+'Sembuh: '+data.recovered+'\n'+'Pasien Aktif: '+data.active;
 
 	tweetIt(tweet);
 })
@@ -20,7 +18,7 @@ fetch("https://disease.sh/v3/covid-19/countries/Indonesia")
 
 fetchData();
 
-setInterval(fetchData, 1000*3600*23) //23 hours
+setInterval(fetchData, 1000*3600*24); //23 hours
 
 
 function tweetIt(hasil){
