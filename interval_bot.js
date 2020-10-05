@@ -23,7 +23,7 @@ setInterval(fetchData, 1000*3600*24); //23 hours
 
 function tweetIt(hasil){
 	var tweet = {
-		status: hasil + " #COVID19indonesia #CoronaIndonesia"
+		status: hasil + "#COVID19indonesia #CoronaIndonesia"
 	}
 
 	console.log(tweet);
